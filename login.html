@@ -1,62 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
-<link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<h2>User Login</h2>
+
 <div class="login-box">
-    <h2>User Login</h2>
-
-    <input id="email" type="text" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
-
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
     <button onclick="login()">Login</button>
 </div>
 
-<!-- Supabase Library -->
+<!-- SUPABASE v2 -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
 
-
-<!-- Your Supabase Config -->
 <script>
-const supabase = supabase.createClient(
-    "https://xzatttpouvlhqzbuwgmc.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6YXR0dHBvdXZsaHF6YnV3Z21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MDIyMDQsImV4cCI6MjA3OTk3ODIwNH0.b_21iJwV6QrZ87xEVCxZxhwYGqvhBHMbm-W9Chu9RnE"
-);
-</script>
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-<!-- FIXED LOGIN FUNCTION -->
-<script>
 async function login() {
-    const email = document.getElementById("email").value;
-    const pass = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    // Try login using Supabase
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: pass
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password
     });
 
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
-
-    // ❌ If login fails — STOP HERE
-    if (error || !data || !data.user) {
+    if (error) {
         alert("Incorrect email or password!");
         return;
     }
 
-    // ✔ Successful login
+    // refresh session
+    await supabaseClient.auth.refreshSession();
+
     window.location.href = "user.html";
 }
 </script>
 
 </body>
 </html>
-
-
-
-
