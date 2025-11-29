@@ -9,7 +9,18 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
 </head>
-    <!-- NAVIGATION BAR -->
+
+<body>
+
+<!-- ✨ PRELOADER -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<!-- 🌙 DARK MODE BUTTON -->
+<div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
+
+<!-- 🧭 NAVBAR -->
 <header id="navbar">
     <div class="nav-container">
         <h2 class="nav-title">UM</h2>
@@ -23,16 +34,6 @@
     </div>
 </header>
 
-<body>
-
-<!-- ✨ PRELOADER -->
-<div id="preloader">
-    <div class="loader"></div>
-</div>
-
-<!-- 🌙 DARK MODE TOGGLE -->
-<div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
-
 <!-- HERO SECTION -->
 <section class="hero" data-aos="fade-down">
     <img src="assets/profile.jpg" class="profile-photo-large">
@@ -43,14 +44,15 @@
     <a href="#about" class="btn-primary">Explore My Work</a>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 <section class="container" id="about" data-aos="fade-up">
     <h2 class="section-title">About Me</h2>
     <p class="section-text">
-        Dedicated Multi-NDT PCN Level II Technician with 3+ years experience in RTFI, MT, PT,
-        radiograph interpretation, defect analysis and safety compliance.
+        Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, MT, PT,
+        radiographic interpretation, defect analysis and safety compliance.
     </p>
-    <a href="assets/resume.pdf" class="btn-download" download>📄 Download CV</a>
+
+    <a href="assets/resume.pdf" class="btn-primary" download>📄 Download CV</a>
 </section>
 
 <!-- CERTIFICATIONS -->
@@ -66,80 +68,24 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section class="container" data-aos="fade-left">
+<section class="container" id="experience" data-aos="fade-left">
     <h2 class="section-title">Experience</h2>
 
     <div class="experience-card">
         <h3>A-Star Testing & Inspection (S) Pte. Ltd.</h3>
         <p class="exp-position">Multi-NDT PCN Technician (Jun 2022 – Jun 2025)</p>
         <ul>
-            <li>RTFI, MT, PT inspection for industrial projects.</li>
-            <li>Advanced radiographic defect analysis.</li>
-            <li>Digitization using Delta 880, Array 2905.</li>
-            <li>Inspection reporting and defect mapping.</li>
-            <li>Radiation safety protocol compliance.</li>
+            <li>Performed RTFI, MT, PT for industrial projects.</li>
+            <li>Advanced radiographic defect interpretation.</li>
+            <li>Digitization using Delta 880, Array 2905, LEEB 620.</li>
+            <li>Inspection reporting & defect mapping.</li>
+            <li>Maintained radiation safety standards.</li>
         </ul>
     </div>
 </section>
 
-<!-- PHOTO GALLERY -->
+<!-- STATS -->
 <section class="container" data-aos="zoom-in">
-    <h2 class="section-title">Photo Gallery</h2>
-    <div id="gallery" class="gallery-grid"></div>
-</section>
-
-<!-- CERTIFICATES -->
-<section class="container" data-aos="zoom-in-up">
-    <h2 class="section-title">Certificates</h2>
-    <div id="certificates" class="certificate-grid"></div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section class="container" data-aos="fade-up">
-    <h2 class="section-title">Achievements</h2>
-    <div id="achievements" class="achievement-list"></div>
-</section>
-
-<!-- CONTACT -->
-<section class="container contact-box" id="contact" data-aos="fade-up">
-    <h2 class="section-title">Contact Me</h2>
-    <p>Have a project or opportunity? Let's talk.</p>
-
-    <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="contact-form">
-        <input type="hidden" name="_captcha" value="false">
-
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-
-        <button type="submit">Send</button>
-    </form>
-</section>
-
-<!-- GOOGLE MAP -->
-<section class="container" data-aos="fade-up">
-    <h2 class="section-title">Location</h2>
-
-    <iframe 
-        src="https://www.google.com/maps?q=West+Godavari,+Andhra+Pradesh&output=embed"
-        width="100%" height="350" style="border:0;border-radius:10px;" allowfullscreen>
-    </iframe>
-</section>
-<a href="https://wa.me/918637202170" class="whatsapp-float" target="_blank">💬</a>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2025 Uma Mahesh • All Rights Reserved</p>
-    <a href="login.html" class="footer-link">User Login</a>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="supabase.js"></script>
-<script src="script.js"></script>
-    <section class="container" data-aos="zoom-in">
     <h2 class="section-title">My Stats</h2>
 
     <div class="stats-grid">
@@ -160,13 +106,74 @@
     </div>
 </section>
 
+<!-- PHOTO GALLERY -->
+<section class="container" id="gallery" data-aos="zoom-in">
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="gallery-grid" id="gallery"></div>
+</section>
 
-</body>
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+<!-- CERTIFICATES -->
+<section class="container" id="certificates" data-aos="zoom-in-up">
+    <h2 class="section-title">Certificates</h2>
+    <div class="certificate-grid" id="certificates"></div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="container" data-aos="fade-up">
+    <h2 class="section-title">Achievements</h2>
+    <div id="achievements" class="achievement-list"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="container contact-box" id="contact" data-aos="fade-up">
+    <h2 class="section-title">Contact Me</h2>
+    <p>Have a project or opportunity? Let's connect.</p>
+
+    <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="contact-form">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<!-- GOOGLE MAP -->
+<section class="container" data-aos="fade-up">
+    <h2 class="section-title">Location</h2>
+
+    <iframe 
+        src="https://www.google.com/maps?q=West+Godavari,+Andhra+Pradesh&output=embed"
+        width="100%" height="350" style="border:0;border-radius:12px;">
+    </iframe>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/918637202170" class="whatsapp-float" target="_blank">💬</a>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
 </div>
 
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 Uma Mahesh • All Rights Reserved</p>
+    <a href="login.html" class="footer-link">User Login</a>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration: 800 });</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="supabase.js"></script>
+<script src="script.js"></script>
+
+</body>
 </html>
+
 
 
 
