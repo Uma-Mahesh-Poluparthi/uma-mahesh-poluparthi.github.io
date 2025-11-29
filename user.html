@@ -38,7 +38,17 @@ async function load() {
 }
 load();
 </script>
+    <button onclick="logout()">Logout</button>
+
+<script>
+async function logout() {
+    await supabase.auth.signOut();
+    alert("Logged out!");
+    window.location.href = "login.html";
+}
+</script>
 
 </body>
 </html>
+
 
