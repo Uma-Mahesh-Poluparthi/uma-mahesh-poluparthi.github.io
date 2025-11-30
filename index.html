@@ -5,110 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uma Mahesh | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
 </head>
 
 <body>
 
-<!-- ================= PRELOADER ================= -->
-<div id="preloader">
-    <div class="loader"></div>
-</div>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">Portfolio</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar glass-bg">
-    <div class="logo">Portfolio</div>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </header>
 
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <img src="assets/profile.jpg" class="profile-photo" alt="Profile Photo" />
 
-    <button id="darkToggle" class="dark-toggle-btn">🌙</button>
-</nav>
+        <h1>Uma Mahesh Poluparthi</h1>
+        <p class="subtitle">Multi-NDT PCN Level II Technician</p>
 
-<!-- ================= HERO SECTION (H1) ================= -->
-<header class="hero">
-    <div class="hero-content">
+        <a href="assets/resume.pdf" download class="btn-primary">Download CV</a>
+    </section>
 
-        <img src="assets/profile.jpg" class="profile-photo" />
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>
+            Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, 
+            MT, PT, radiographic interpretation, defect analysis, and safety compliance.
+        </p>
+    </section>
 
-        <h1 class="hero-name">Uma Mahesh Poluparthi</h1>
-        <p class="hero-title">Multi-NDT PCN Level II Technician</p>
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+        <h2>Photo Gallery</h2>
 
-        <a href="assets/resume.pdf" download class="btn-primary pulse">Download CV</a>
-    </div>
-</header>
-
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section glass-card fade-in">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-text">
-        Dedicated Multi-NDT PCN Level II Technician with over 3 years of 
-        hands-on experience in RTFI, MT, PT, radiographic interpretation, 
-        defect analysis, and safety compliance.
-    </p>
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="section fade-in">
-    <h2 class="section-title">Photo Gallery</h2>
-
-    <div id="galleryBox" class="gallery-grid glass-bg">
-        <!-- Auto loaded by JS -->
-    </div>
-</section>
-
-<!-- ================= CERTIFICATES ================= -->
-<section id="certificates" class="section glass-card fade-in">
-    <h2 class="section-title">Certificates</h2>
-    <ul class="cert-list">
-        <li>✔ PCN Level II — Radiographic Testing (RTFI)</li>
-        <li>✔ Magnetic Particle Testing — Level II</li>
-        <li>✔ Penetrant Testing — Level II</li>
-    </ul>
-</section>
-
-<!-- ================= ACHIEVEMENTS ================= -->
-<section id="achievements" class="section glass-card fade-in">
-    <h2 class="section-title">Achievements</h2>
-
-    <div class="achieve-container">
-        <div class="achieve-box">
-            <h3 class="counter" data-target="500">0</h3>
-            <p>Radiographs Analyzed</p>
+        <div class="gallery-grid">
+            <img src="assets/gallery/1.jpg" />
+            <img src="assets/gallery/2.jpg" />
+            <img src="assets/gallery/3.jpg" />
+            <img src="assets/gallery/4.jpg" />
+            <img src="assets/gallery/5.jpg" />
+            <img src="assets/gallery/6.jpg" />
         </div>
+    </section>
 
-        <div class="achieve-box">
-            <h3 class="counter" data-target="200">0</h3>
-            <p>Inspections Completed</p>
-        </div>
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section">
+        <h2>Certificates</h2>
+        <ul>
+            <li>PCN-RTFI Level II – Radiographic Testing Film Interpretation</li>
+            <li>Magnetic Particle Testing Level II</li>
+            <li>Penetrant Testing Level II</li>
+        </ul>
+    </section>
 
-        <div class="achieve-box">
-            <h3 class="counter" data-target="3">0</h3>
-            <p>Years Experience</p>
-        </div>
-    </div>
-</section>
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section">
+        <h2>Achievements</h2>
+        <ul>
+            <li>500+ Radiographs Analyzed</li>
+            <li>200+ Inspections Completed</li>
+            <li>3+ Years Industrial Experience</li>
+        </ul>
+    </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section glass-card fade-in">
-    <h2 class="section-title">Contact Me</h2>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:umamahi@gmail.com">umamahi@gmail.com</a></p>
+        <p>Location: Hyderabad, India</p>
+    </section>
 
-    <p class="contact-text">📧 Email: <strong>umamahe113@gmail.com</strong></p>
-    <p class="contact-text">📍 Location: Pekeru, India</p>
 
-    <a href="https://wa.me/+916304202170" class="btn-whatsapp">💬 WhatsApp Me</a>
-</section>
+    <!-- FOOTER -->
+    <footer class="footer">
+        © 2025 Uma Mahesh Poluparthi — All Rights Reserved
+    </footer>
 
-<!-- ================= FOOTER ================= -->
-<footer class="footer glass-bg">
-    © 2025 Uma Mahesh | All Rights Reserved
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
-
