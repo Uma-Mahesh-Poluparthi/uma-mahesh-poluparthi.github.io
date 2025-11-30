@@ -1,31 +1,20 @@
-/* ======================================================
-   SUPABASE v2 INITIALIZATION
-   ====================================================== */
+/* ============================================
+   SUPABASE v2 CLIENT INIT (UMD BUILD)
+=============================================== */
 const { createClient } = supabase;
 
-const client = createClient(
-    "https://xzatttpouvlhqzbuwgmc.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6YXR0dHBvdXZsaHF6YnV3Z21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MDIyMDQsImV4cCI6MjA3OTk3ODIwNH0.b_21iJwV6QrZ87xEVCxZxhwYGqvhBHMbm-W9Chu9RnE"
-);
+const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-/* ======================================================
-   PRELOADER HIDE
-   ====================================================== */
+/* ============================================
+   PRELOADER
+=============================================== */
 window.addEventListener("load", () => {
-    const loader = document.getElementById("preloader");
-    if (loader) loader.style.display = "none";
+    document.getElementById("preloader").style.display = "none";
 });
 
-/* ======================================================
-   DARK MODE TOGGLE
-   ====================================================== */
-
-// Auto-detect device theme
-if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.body.classList.add("dark");
-}
-
-// Load saved theme
+/* ============================================
+   DARK MODE
+=============================================== */
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
 }
@@ -33,16 +22,15 @@ if (localStorage.getItem("theme") === "dark") {
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 
-    if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
+    localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+    );
 }
 
-/* ======================================================
-   LIGHTBOX CODE
-   ====================================================== */
+/* ============================================
+   LIGHTBOX
+=============================================== */
 function openLightbox(src) {
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").style.display = "flex";
@@ -52,42 +40,41 @@ function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
 
-/* ======================================================
-   LOAD GALLERY FROM SUPABASE (photos bucket)
-   ====================================================== */
+/* ============================================
+   LOAD GALLERY IMAGES
+=============================================== */
 async function loadGallery() {
-    let { data, error } = await client.storage.from("photos").list("", { limit: 200 });
+    const { data } = await client.storage.from("photos").list("", { limit: 200 });
 
-    const gallery = document.getElementById("gallery");
-    if (!gallery || error) return;
+    const box = document.getElementById("gallery");
+    if (!box) return;
 
-    gallery.innerHTML = "";
+    box.innerHTML = "";
 
     data.forEach(file => {
-        if (file.name === "certificates") return; // skip folder
+        if (file.name === "certificates") return;
 
         const url = client.storage.from("photos").getPublicUrl(file.name).data.publicUrl;
 
-        gallery.innerHTML += `
+        box.innerHTML += `
             <div class="gallery-item" onclick="openLightbox('${url}')">
                 <img src="${url}">
-            </div>
-        `;
+            </div>`;
     });
 }
 
 loadGallery();
 
-/* ======================================================
-   LOAD CERTIFICATES FROM SUPABASE (photos/certificates)
-   ====================================================== */
+/* ============================================
+   LOAD CERTIFICATES
+=============================================== */
 async function loadCertificates() {
-    let { data, error } = await client.storage
+    const { data } = await client.storage
         .from("photos")
         .list("certificates", { limit: 200 });
 
     const box = document.getElementById("certificates");
-    if (!box || error) return;
+    if (!box) return;
 
     box.innerHTML = "";
 
@@ -99,21 +86,20 @@ async function loadCertificates() {
         box.innerHTML += `
             <div class="certificate-item">
                 <img src="${url}">
-            </div>
-        `;
+            </div>`;
     });
 }
 
 loadCertificates();
 
-/* ======================================================
-   LOAD ACHIEVEMENTS FROM TABLE
-   ====================================================== */
+/* ============================================
+   LOAD ACHIEVEMENTS (from table)
+=============================================== */
 async function loadAchievements() {
-    let { data, error } = await client.from("achievements").select("*");
+    const { data } = await client.from("achievements").select("*");
 
     const box = document.getElementById("achievements");
-    if (!box || error) return;
+    if (!box) return;
 
     box.innerHTML = data
         .map(a => `<p class="achievement-item">• ${a.text}</p>`)
@@ -122,24 +108,27 @@ async function loadAchievements() {
 
 loadAchievements();
 
-/* ======================================================
-   STATS ANIMATION
-   ====================================================== */
+/* ============================================
+   STATS COUNTER
+=============================================== */
 function animateStats() {
     document.querySelectorAll(".stat-num").forEach(num => {
-        let end = parseInt(num.getAttribute("data-count"));
+        let end = parseInt(num.dataset.count);
         let value = 0;
 
-        let counter = setInterval(() => {
-            value += Math.ceil(end / 60);
-            num.textContent = value;
+        const timer = setInterval(() => {
+            value += Math.ceil(end / 50);
 
             if (value >= end) {
-                num.textContent = end;
-                clearInterval(counter);
+                value = end;
+                clearInterval(timer);
             }
-        }, 25);
+
+            num.textContent = value;
+        }, 30);
     });
 }
 
-setTimeout(animateStats, 1200);
+setTimeout(animateStats, 1000);
+
+
