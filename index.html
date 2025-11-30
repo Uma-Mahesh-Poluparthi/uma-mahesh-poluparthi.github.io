@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uma Mahesh | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Background Particles -->
 <canvas id="particles"></canvas>
 
 <!-- Theme Toggle -->
 <div id="theme-toggle">🌙</div>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/916304202170" target="_blank" class="whatsapp-btn">💬</a>
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/916304202170" class="whatsapp-btn" target="_blank">💬</a>
 
 <!-- NAVBAR -->
 <header class="navbar glass">
-    <div class="logo">UM</div>
+    <div class="logo-animated">UM</div>
     <nav>
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
         <a href="#certificates">Certificates</a>
-        <a href="#achievements">Achievements</a>
+        <a href="#experience">Experience</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade">
     <div class="profile-wrapper">
         <div class="glow-circle"></div>
-        <img src="assets/profile1.png" class="profile-pic" alt="Profile" />
+        <img src="assets/profile1.png" class="profile-pic">
     </div>
 
-    <h1 class="title fade">Uma Mahesh Poluparthi</h1>
-    <p class="subtitle fade">Multi-NDT PCN Level II Technician</p>
+    <h1 class="title">Uma Mahesh Poluparthi</h1>
+    <p class="subtitle">Multi-NDT | PCN Level II Technician</p>
 
-    <a href="assets/resume.pdf" download class="btn-primary fade">Download CV</a>
+    <a href="assets/resume.pdf" download class="btn-primary">Download CV</a>
 
-    <div class="stats fade">
-        <div class="stat">
+    <div class="stats">
+        <div class="stat neon-blue">
             <span class="count" data-val="3">0</span>
             <p>Years Experience</p>
         </div>
-        <div class="stat">
+        <div class="stat neon-green">
             <span class="count" data-val="500">0</span>
             <p>Radiographs Analyzed</p>
         </div>
-        <div class="stat">
+        <div class="stat neon-pink">
             <span class="count" data-val="200">0</span>
             <p>Inspections Completed</p>
         </div>
@@ -61,8 +61,8 @@
 <section id="about" class="section glass fade">
     <h2>About Me</h2>
     <p>
-        Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in
-        RTFI, MT, PT, radiographic interpretation, defect analysis and safety compliance.
+        Dedicated Multi-NDT PCN Level II Technician with hands-on experience in industrial inspection,
+        RTFI interpretation, MT, PT, defect evaluation, and safety compliance.
     </p>
 </section>
 
@@ -71,42 +71,111 @@
     <h2>Photo Gallery</h2>
 
     <div class="gallery-scroll">
-        <img src="assets/gallery/img1.jpg" class="g-item" />
-        <img src="assets/gallery/img2.jpg" class="g-item" />
-        <img src="assets/gallery/img3.jpg" class="g-item" />
-        <img src="assets/gallery/img4.jpg" class="g-item" />
+        <img src="assets/gallery/img1.jpg" class="g-item">
+        <img src="assets/gallery/img2.jpg" class="g-item">
+        <img src="assets/gallery/img3.jpg" class="g-item">
+        <img src="assets/gallery/img4.jpg" class="g-item">
     </div>
 </section>
 
 <!-- CERTIFICATES -->
-<section id="certificates" class="section glass fade">
+<section id="certificates" class="section fade">
     <h2>Certificates</h2>
-    <ul>
-        <li>PCN Level II – Radiographic Testing Film Interpretation</li>
-        <li>Magnetic Particle Testing Level II</li>
-        <li>Penetrant Testing Level II</li>
-    </ul>
+
+    <div class="cert-container">
+
+        <!-- CARD 1 -->
+        <div class="cert-card">
+            <div class="cert-front">PCN Level II<br>RTFI</div>
+            <div class="cert-back">
+                Radiographic Testing Film Interpretation  
+                Certified to Level II standards  
+                PCN Approved
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="cert-card">
+            <div class="cert-front">PCN Level II<br>MT</div>
+            <div class="cert-back">
+                Magnetic Particle Testing  
+                Defect Detection & Interpretation  
+                PCN Approved
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="cert-card">
+            <div class="cert-front">PCN Level II<br>PT</div>
+            <div class="cert-back">
+                Penetrant Testing  
+                Surface Defect Identification  
+                PCN Approved
+            </div>
+        </div>
+
+    </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements" class="section glass fade">
-    <h2>Achievements</h2>
-    <ul>
-        <li>500+ Radiographs Analyzed</li>
-        <li>200+ Inspections Completed</li>
-        <li>3+ Years Industrial Experience</li>
-    </ul>
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" class="section fade glass">
+    <h2>Experience Timeline</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>2020</h3>
+            <p>Trainee – NDT Foundations & Safety Training</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>2021</h3>
+            <p>NDT Technician – MT/PT Operations</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>2022</h3>
+            <p>RT/MT/PT Level II – Film Interpretation & Analysis</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>2024</h3>
+            <p>Senior NDT Technician – Multi-Method Inspection</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section fade">
+    <h2>Testimonials</h2>
+
+    <div class="testimonial-box">
+        <p id="testimonial-text">
+            “Uma is a highly disciplined and technically strong NDT technician with excellent interpretation skills.”
+        </p>
+    </div>
+
+    <div class="testimonial-nav">
+        <button id="prev-btn">◀</button>
+        <button id="next-btn">▶</button>
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section glass fade">
-    <h2>Contact Me</h2>
+    <h2>Contact</h2>
+
     <p>Email: <a href="mailto:umamahe113@gmail.com">umamahe113@gmail.com</a></p>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-    © 2025 Uma Mahesh — Built with precision, discipline & hard work.
+    © 2025 Uma Mahesh — Built with precision, discipline & pride.
 </footer>
 
 <script src="script.js"></script>
