@@ -346,3 +346,12 @@ footer {
     color: #6dd5fa;
     text-decoration: none;
 }
+
+.cv-wrapper {
+    margin-top: 25px;
+    text-align: left; /* You can change to center if you want */
+}
+
+.cv-download {
+    display: inline-block;
+}
