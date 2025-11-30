@@ -1,184 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Uma Mahesh – Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Uma Mahesh Poluparthi</title>
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-<!-- PRELOADER -->
-<div id="preloader">
-    <div class="loader"></div>
-</div>
+    <!-- HEADER -->
+    <header>
+        <h1>Uma Mahesh Poluparthi</h1>
+        <p>Multi-NDT PCN Level II Technician</p>
+    </header>
 
-<!-- DARK MODE BUTTON -->
-<div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience in RTFI, MT, PT...</p>
+        <a href="assets/resume.pdf" class="cv-button" download>Download CV</a>
+    </section>
 
-<!-- NAVBAR -->
-<header id="navbar">
-    <div class="nav-container">
-        <h2 class="nav-title">UM</h2>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#gallery-section">Gallery</a>
-            <a href="#certificates-section">Certificates</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
+    <!-- GALLERY SECTION -->
+    <section id="gallery-section">
+        <h2>Photo Gallery</h2>
+        <div id="gallery" class="gallery-container"></div>
+    </section>
 
-<!-- HERO -->
-<section class="hero">
-    <img src="assets/profile.jpg" class="profile-photo-large">
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+        <h2>Certificates</h2>
+    </section>
 
-    <h1 class="hero-title">Uma Mahesh Poluparthi</h1>
-    <p class="hero-subtitle">Multi-NDT PCN Level II Technician</p>
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+        <h2>Achievements</h2>
+    </section>
 
-    <a href="#about" class="btn-primary">Explore My Work</a>
-</section>
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+    </section>
 
-<!-- ABOUT -->
-<section class="container" id="about" data-aos="fade-up">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-text">
-   Dedicated Multi-NDT PCN Level II Technician with 3+ years of experience...
-</p>
-
-<div class="cv-wrapper">
-    <a href="assets/resume.pdf" class="cv-download" download>📄 Download CV</a>
-</div>
-
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="container" data-aos="fade-right">
-    <h2 class="section-title">Technical Certifications</h2>
-
-    <div class="card-grid">
-        <div class="card">PCN RTFI Level II (350570)</div>
-        <div class="card">PCN MT Level II (350570)</div>
-        <div class="card">PCN PT Level II (350570)</div>
-        <div class="card">R1 License – NEA Singapore</div>
-    </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="container" id="experience" data-aos="fade-left">
-    <h2 class="section-title">Experience</h2>
-
-    <div class="experience-card">
-        <h3>A-Star Testing & Inspection (S) Pte. Ltd.</h3>
-        <p class="exp-position">Multi-NDT PCN Technician (Jun 2022 – Jun 2025)</p>
-
-        <ul>
-            <li>Performed RTFI, MT, PT for industrial projects.</li>
-            <li>Advanced radiographic defect interpretation.</li>
-            <li>Digitization using Delta 880, Array 2905, LEEB 620.</li>
-            <li>Inspection reporting & defect mapping.</li>
-            <li>Maintained radiation safety standards.</li>
-        </ul>
-    </div>
-</section>
-
-<!-- STATS -->
-<section class="container" data-aos="zoom-in">
-    <h2 class="section-title">My Stats</h2>
-
-    <div class="stats-grid">
-        <div class="stat-box">
-            <span class="stat-num" data-count="3">0</span>
-            <p>Years Experience</p>
-        </div>
-
-        <div class="stat-box">
-            <span class="stat-num" data-count="500">0</span>
-            <p>Radiographs Analyzed</p>
-        </div>
-
-        <div class="stat-box">
-            <span class="stat-num" data-count="200">0</span>
-            <p>Inspections Completed</p>
-        </div>
-    </div>
-</section>
-
-<!-- GALLERY -->
-<section class="container" id="gallery-section" data-aos="fade-up">
-    <h2 class="section-title">Photo Gallery</h2>
-
-    <div class="gallery-grid" id="gallery"></div>
-</section>
-
-<!-- CERTIFICATES -->
-<section class="container" id="certificates-section" data-aos="fade-up">
-    <h2 class="section-title">Certificates</h2>
-
-    <div class="certificate-grid" id="certificates"></div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section class="container" data-aos="zoom-in-up">
-    <h2 class="section-title">Achievements</h2>
-
-    <div id="achievements"></div>
-</section>
-
-<!-- CONTACT -->
-<section class="container contact-box" id="contact" data-aos="fade-up">
-    <h2 class="section-title">Contact Me</h2>
-
-    <form action="https://formsubmit.co/umamahe113@gmail.com" method="POST" class="contact-form">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-
-        <button type="submit">Send</button>
-    </form>
-</section>
-
-<!-- GOOGLE MAP -->
-<section class="container" data-aos="fade-up">
-    <h2 class="section-title">Location</h2>
-
-    <iframe 
-        src="https://www.google.com/maps?q=West+Godavari,+Andhra+Pradesh&output=embed"
-        width="100%" height="350" style="border:0;border-radius:12px;">
-    </iframe>
-</section>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/918637202170" class="whatsapp-float">💬</a>
-
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
-</div>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2025 Uma Mahesh • All Rights Reserved</p>
-    <a href="login.html" class="footer-link">User Login</a>
-</footer>
-
-<!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({ duration: 800 });</script>
-
-<!-- SUPABASE v2 (UMD — REQUIRED FOR BROWSER) -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.js"></script>
-
-<!-- PROJECT SCRIPTS -->
-<script src="supabase.js"></script>
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
