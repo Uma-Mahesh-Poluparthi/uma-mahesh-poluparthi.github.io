@@ -420,83 +420,59 @@ body.light {
     cursor: pointer;
 }
 
-/* -----------------------------
+/* --------------------------
    CLEAN EXPERIENCE TIMELINE
-------------------------------*/
-.timeline-section {
-    padding: 80px 20px;
+--------------------------- */
+.experience-section {
+    padding: 70px 20px;
     background: #000;
 }
 
-.timeline-wrapper {
-    max-width: 750px;
+.exp-container {
+    max-width: 700px;
     margin: auto;
-    padding: 40px;
 }
 
-.timeline-wrapper .section-title {
-    font-size: 32px;
+.exp-title {
+    font-size: 30px;
     font-weight: 700;
-    text-align: left;
-    margin-bottom: 40px;
-}
-
-/* Vertical line */
-.timeline {
-    border-left: 2px solid #444;
-    padding-left: 30px;
-}
-
-/* Row layout */
-.timeline-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    color: #fff;
     margin-bottom: 35px;
+}
+
+.exp-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    border-left: 2px solid #444;
+}
+
+.exp-list li {
+    padding: 15px 0 15px 25px;
     position: relative;
 }
 
-/* Dots */
-.timeline-row .dot {
+.exp-list li::before {
+    content: "";
     width: 12px;
     height: 12px;
     background: #fff;
     border-radius: 50%;
     position: absolute;
-    left: -37px;
+    left: -7px;
+    top: 25px;
 }
 
-/* Year */
-.timeline-row .year {
-    font-size: 22px;
+.year {
+    font-size: 20px;
     font-weight: 700;
     color: #fff;
-    width: 70px;
 }
 
-/* Description */
-.timeline-row .desc {
-    font-size: 17px;
+.text {
     color: #ccc;
-}
-
-/* Animation */
-.timeline-row {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp .7s ease forwards;
-}
-
-.timeline-row:nth-child(1) { animation-delay: 0.1s; }
-.timeline-row:nth-child(2) { animation-delay: 0.2s; }
-.timeline-row:nth-child(3) { animation-delay: 0.3s; }
-.timeline-row:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin-top: 5px;
+    font-size: 16px;
 }
 
 /* ----------------------------------------------
@@ -595,5 +571,6 @@ body.light {
     color: #888;
     font-size: 15px;
 }
+
 
 
