@@ -1,5 +1,5 @@
-/* ---------------------------------------------
-   RESET + GLOBAL
+/* ----------------------------------------------
+   GLOBAL RESET
 ---------------------------------------------- */
 * {
     margin: 0;
@@ -10,18 +10,18 @@
 body {
     background: #0d0d0d;
     color: #fff;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     transition: background 0.3s, color 0.3s;
 }
 
 a {
-    color: #e0e0e0;
+    color: #fff;
     text-decoration: none;
 }
 
-/* ---------------------------------------------
-   PARTICLE BACKGROUND
+/* ----------------------------------------------
+   PARTICLE CANVAS
 ---------------------------------------------- */
 #particles {
     position: fixed;
@@ -30,19 +30,42 @@ a {
     width: 100%;
     height: 100%;
     z-index: -10;
-    pointer-events: none;
 }
 
-/* ---------------------------------------------
+/* ----------------------------------------------
+   LOADING SCREEN
+---------------------------------------------- */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    transition: opacity .8s ease;
+}
+
+.loader-logo {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------------------
    THEME TOGGLE
 ---------------------------------------------- */
 #theme-toggle {
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 70px;
     font-size: 26px;
     cursor: pointer;
-    z-index: 2000;
+    z-index: 3000;
 }
 
 /* LIGHT MODE */
@@ -51,50 +74,97 @@ body.light {
     color: #111;
 }
 
-/* ---------------------------------------------
-   WHATSAPP FLOATING BUTTON
+/* ----------------------------------------------
+   LANGUAGE TOGGLE
+---------------------------------------------- */
+#lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 120px;
+    background: #1d1d1d;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    cursor: pointer;
+    z-index: 3000;
+    font-size: 14px;
+}
+
+/* ----------------------------------------------
+   WHATSAPP BUTTON
 ---------------------------------------------- */
 .whatsapp-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
     background: #25d366;
-    padding: 15px 17px;
-    color: white;
-    font-size: 28px;
+    padding: 15px;
     border-radius: 50%;
-    text-decoration: none;
+    font-size: 26px;
+    color: #000;
     z-index: 2000;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
-/* ---------------------------------------------
+/* ----------------------------------------------
+   SECTION INDICATOR
+---------------------------------------------- */
+.section-indicator {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 18px;
+    user-select: none;
+    z-index: 2000;
+}
+
+.section-indicator div {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.section-indicator .active {
+    font-size: 20px;
+    color: #fff;
+}
+
+/* ----------------------------------------------
+   BACK TO TOP BUTTON
+---------------------------------------------- */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #1e1e1e;
+    padding: 14px 18px;
+    border-radius: 50%;
+    border: 1px solid #444;
+    opacity: 0;
+    transition: .4s ease;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 2000;
+}
+
+#backToTop.show { opacity: 1; }
+
+/* ----------------------------------------------
    NAVBAR
 ---------------------------------------------- */
 .navbar {
     width: 100%;
-    padding: 15px 50px;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.glass {
     backdrop-filter: blur(10px);
     background: rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.navbar nav a {
-    margin-left: 25px;
-    font-size: 15px;
-    transition: 0.3s;
-}
-.navbar nav a:hover {
-    color: #ffffff;
 }
 
 .logo {
@@ -102,8 +172,18 @@ body.light {
     font-weight: 700;
 }
 
-/* ---------------------------------------------
-   HERO
+.navbar nav a {
+    margin-left: 25px;
+    font-size: 15px;
+    color: #dedede;
+    transition: 0.3s ease;
+}
+.navbar nav a:hover {
+    color: #fff;
+}
+
+/* ----------------------------------------------
+   HERO SECTION
 ---------------------------------------------- */
 .hero {
     text-align: center;
@@ -117,8 +197,8 @@ body.light {
 .profile-img {
     width: 210px;
     height: 210px;
-    border-radius: 50%;
     object-fit: cover;
+    border-radius: 50%;
     border: 3px solid #fff;
 }
 
@@ -129,57 +209,63 @@ body.light {
 
 .subtitle {
     font-size: 20px;
-    margin-top: 8px;
     color: #c9c9c9;
+    margin-top: 8px;
 }
 
-/* Buttons */
+/* Typing animation space */
+#typing {
+    font-size: 18px;
+    color: #cfcfcf;
+    margin-top: 10px;
+    height: 28px;
+}
+
+/* ----------------------------------------------
+   BUTTONS
+---------------------------------------------- */
 .btn-primary {
     display: inline-block;
-    margin-top: 25px;
     padding: 12px 28px;
-    background: #ffffff;
+    background: #fff;
     color: #000;
     font-weight: bold;
     border-radius: 8px;
-    transition: 0.3s;
+    margin-top: 20px;
+    transition: 0.3s ease;
 }
 .btn-primary:hover {
     background: #d6d6d6;
 }
 
-/* ---------------------------------------------
-   STATS
+/* ----------------------------------------------
+   STAT CARDS
 ---------------------------------------------- */
 .stats {
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     gap: 60px;
 }
 
 .stat {
-    text-align: center;
-    padding: 18px;
-    width: 120px;
+    padding: 20px;
     border-radius: 10px;
     background: #1a1a1a;
     border: 1px solid #333;
+    width: 140px;
+    text-align: center;
     transition: 0.3s;
 }
-
-.stat:hover {
-    transform: scale(1.05);
-}
+.stat:hover { transform: scale(1.05); }
 
 .count {
-    font-size: 36px;
-    font-weight: bold;
-    color: #fff;
+    font-size: 34px;
+    font-weight: 700;
 }
 
-/* ---------------------------------------------
-   SECTION BASE
+/* ----------------------------------------------
+   SECTIONS
 ---------------------------------------------- */
 .section {
     max-width: 850px;
@@ -189,62 +275,91 @@ body.light {
 }
 
 .section h2 {
-    font-size: 32px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
-/* Glass panels */
-.glass-box {
+.glass {
     backdrop-filter: blur(10px);
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.12);
 }
 
-/* ---------------------------------------------
+/* ----------------------------------------------
    GALLERY
 ---------------------------------------------- */
 .gallery-scroll {
-    margin-top: 15px;
     display: flex;
-    gap: 16px;
+    gap: 14px;
     overflow-x: auto;
-    padding-bottom: 16px;
+    padding-bottom: 10px;
 }
 
-.gallery-scroll::-webkit-scrollbar {
-    height: 8px;
-}
-.gallery-scroll::-webkit-scrollbar-thumb {
-    background: #444;
-}
+.gallery-scroll::-webkit-scrollbar { height: 8px; }
+.gallery-scroll::-webkit-scrollbar-thumb { background: #3a3a3a; }
 
 .g-item {
-    width: 260px;
-    height: 180px;
-    border-radius: 10px;
+    width: 240px;
+    height: 170px;
+    border-radius: 8px;
+    border: 1px solid #444;
     object-fit: cover;
-    transition: transform 0.3s;
-    border: 1px solid #333;
+    cursor: pointer;
+    transition: .3s ease;
 }
-.g-item:hover {
-    transform: scale(1.05);
+.g-item:hover { transform: scale(1.05); }
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 4000;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+#lightbox-close {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
 }
 
-/* ---------------------------------------------
-   CERTIFICATE CARDS (3D FLIP)
+/* ----------------------------------------------
+   CERTIFICATE CARDS WITH PDF VIEWER
 ---------------------------------------------- */
 .cert-container {
     display: flex;
-    justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cert-card {
-    width: 220px;
-    height: 160px;
+    width: 200px;
+    height: 140px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
     position: relative;
-    perspective: 900px;
+    perspective: 800px;
+    transition: .3s ease;
 }
 
 .cert-front,
@@ -252,52 +367,69 @@ body.light {
     width: 100%;
     height: 100%;
     position: absolute;
-    border-radius: 12px;
-    padding: 20px;
-    font-size: 17px;
-    font-weight: 600;
-    backface-visibility: hidden;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.cert-front {
-    background: #1e1e1e;
-    border: 1px solid #444;
+    backface-visibility: hidden;
+    font-weight: bold;
 }
 
 .cert-back {
     background: #111;
     transform: rotateY(180deg);
-    font-weight: 400;
-    text-align: center;
 }
 
-.cert-card:hover .cert-front {
-    transform: rotateY(-180deg);
-}
-.cert-card:hover .cert-back {
-    transform: rotateY(0deg);
+.cert-card:hover .cert-front { transform: rotateY(-180deg); }
+.cert-card:hover .cert-back  { transform: rotateY(0); }
+
+/* PDF Viewer Modal */
+#pdf-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 4500;
 }
 
-/* ---------------------------------------------
-   EXPERIENCE TIMELINE
+#pdf-box {
+    width: 80%;
+    height: 80%;
+    background: #111;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+#pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#pdf-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------
+   TIMELINE
 ---------------------------------------------- */
 .timeline {
-    position: relative;
-    padding-left: 30px;
     border-left: 2px solid #444;
+    padding-left: 25px;
 }
-
 .timeline-item {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
-
-.timeline-item h3 {
-    font-size: 22px;
-}
-
 .timeline-dot {
     width: 12px;
     height: 12px;
@@ -307,7 +439,45 @@ body.light {
     left: -7px;
 }
 
-/* ---------------------------------------------
+/* ----------------------------------------------
+   PROJECT ACCORDION
+---------------------------------------------- */
+.project-list { display: flex; flex-direction: column; gap: 15px; }
+
+.project-item {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+.project-header {
+    width: 100%;
+    padding: 18px;
+    background: #222;
+    border: none;
+    text-align: left;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.arrow { transition: .3s; }
+.project-item.active .arrow { transform: rotate(-180deg); }
+
+.project-body {
+    padding: 0 20px 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .4s ease;
+}
+.project-item.active .project-body {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* ----------------------------------------------
    FEEDBACK FORM
 ---------------------------------------------- */
 .feedback-form {
@@ -315,152 +485,17 @@ body.light {
     flex-direction: column;
     gap: 15px;
 }
-
 .feedback-form input,
 .feedback-form textarea {
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #555;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 10px;
     background: #1b1b1b;
     color: #fff;
 }
+.feedback-form textarea { height: 130px; resize: vertical; }
 
-.feedback-form textarea {
-    resize: vertical;
-    height: 120px;
-}
-
-/* ---------------------------------------------
-   FADE ANIMATION
----------------------------------------------- */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s forwards;
-}
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ---------------------------------------------
-   FOOTER
----------------------------------------------- */
-.footer {
-    text-align: center;
-    padding: 35px 0;
-    color: #888;
-    font-size: 15px;
-}
-/* ---------------------------------------------
-   PROJECTS SECTION
----------------------------------------------- */
-.project-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.project-card {
-    background: #1a1a1a;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #333;
-    transition: 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    background: #222;
-}
-
-.project-card h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
-    color: #fff;
-}
-
-.project-role {
-    font-size: 15px;
-    color: #c7c7c7;
-    margin-bottom: 10px;
-}
-
-.project-card p {
-    color: #d1d1d1;
-    line-height: 1.6;
-}
-/* --------------------------------------------------
-   PROJECTS — EXPANDABLE ACCORDION DESIGN
--------------------------------------------------- */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.project-item {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: 0.3s ease;
-}
-
-.project-header {
-    width: 100%;
-    text-align: left;
-    padding: 18px 20px;
-    background: #1f1f1f;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-header:hover {
-    background: #262626;
-}
-
-.project-body {
-    padding: 0 20px 15px 20px;
-    color: #d2d2d2;
-    font-size: 15px;
-    line-height: 1.6;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-.project-item.active .project-body {
-    max-height: 300px;
-    opacity: 1;
-}
-
-.project-tags {
-    font-size: 13px;
-    color: #b5b5b5;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-.arrow {
-    transition: transform 0.3s ease;
-}
-
-.project-item.active .arrow {
-    transform: rotate(-180deg);
-}
-
-/* POPUP SUCCESS MESSAGE */
+/* POPUP */
 .popup {
     position: fixed;
     top: 20px;
@@ -469,120 +504,34 @@ body.light {
     padding: 15px 25px;
     border-radius: 10px;
     border: 1px solid #444;
-    font-size: 16px;
     opacity: 0;
     transform: translateY(-20px);
-    transition: 0.4s ease;
+    transition: .4s;
     z-index: 3000;
 }
-
 .popup.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ---------------------------------------------
-   LOADING SCREEN
+/* ----------------------------------------------
+   FADE-UP ANIMATION
 ---------------------------------------------- */
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #0d0d0d;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Inter";
-    z-index: 5000;
-    transition: opacity 0.8s ease;
-}
-
-.loader-logo {
-    font-size: 50px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-/* ---------------------------------------------
-   BACK TO TOP BUTTON
----------------------------------------------- */
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    background: #1e1e1e;
-    padding: 14px 18px;
-    border-radius: 50%;
-    border: 1px solid #444;
+.fade {
     opacity: 0;
-    cursor: pointer;
-    transition: 0.4s ease;
-    font-size: 20px;
-    z-index: 2000;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
 }
 
-#backToTop.show {
-    opacity: 1;
-}
-
-/* ---------------------------------------------
-   SECTION INDICATOR (RIGHT SIDE)
+/* ----------------------------------------------
+   FOOTER
 ---------------------------------------------- */
-.section-indicator {
-    position: fixed;
-    top: 50%;
-    right: 25px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-size: 18px;
+.footer {
+    text-align: center;
+    padding: 40px 0;
     color: #888;
-    z-index: 2000;
-    user-select: none;
+    font-size: 15px;
 }
-
-.section-indicator div {
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.section-indicator div.active {
-    color: #fff;
-    font-size: 20px;
-}
-
-/* ---------------------------------------------
-   MOUSE SPOTLIGHT EFFECT
----------------------------------------------- */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    opacity: 0.4;
-    z-index: 0;
-    transition: 0.1s linear;
-}
-
-/* ---------------------------------------------
-   TYPING ANIMATION PLACEHOLDER
----------------------------------------------- */
-#typing {
-    font-size: 18px;
-    margin-top: 10px;
-    color: #c9c9c9;
-    height: 30px;
-}
-
-
-
