@@ -393,4 +393,71 @@ body.light {
     color: #d1d1d1;
     line-height: 1.6;
 }
+/* --------------------------------------------------
+   PROJECTS — EXPANDABLE ACCORDION DESIGN
+-------------------------------------------------- */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-item {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.project-header {
+    width: 100%;
+    text-align: left;
+    padding: 18px 20px;
+    background: #1f1f1f;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-header:hover {
+    background: #262626;
+}
+
+.project-body {
+    padding: 0 20px 15px 20px;
+    color: #d2d2d2;
+    font-size: 15px;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.project-item.active .project-body {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.project-tags {
+    font-size: 13px;
+    color: #b5b5b5;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.project-item.active .arrow {
+    transform: rotate(-180deg);
+}
+
 
