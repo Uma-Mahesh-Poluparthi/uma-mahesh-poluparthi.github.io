@@ -436,3 +436,30 @@ body {
         transform: translateY(0);
     }
 }
+
+/* ---------------------------------------------
+   FLOATING WHATSAPP BUTTON
+----------------------------------------------*/
+.whatsapp-float {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 55px;
+    height: 55px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    text-decoration: none;
+    border: 1px solid #333;
+    transition: 0.3s ease;
+    z-index: 3000;
+}
+
+.whatsapp-float:hover {
+    background: #222;
+    transform: scale(1.07);
+}
