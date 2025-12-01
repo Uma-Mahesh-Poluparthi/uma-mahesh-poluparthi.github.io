@@ -4,58 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success | Thank You</title>
+
     <style>
         body {
             background: #0d0d0d;
             color: #fff;
-            font-family: "Inter", sans-serif;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            margin-top: 140px;
         }
 
-        .box {
-            max-width: 500px;
-            margin: auto;
+        .center-box {
+            max-width: 450px;
+            margin: 140px auto;
             padding: 40px;
-            border-radius: 12px;
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
         }
 
         h1 {
-            font-size: 32px;
+            font-size: 30px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         p {
-            margin-top: 15px;
-            color: #d1d1d1;
+            color: #cfcfcf;
+            font-size: 16px;
+            margin-bottom: 25px;
         }
 
         a {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
+            padding: 12px 28px;
             background: #fff;
             color: #000;
-            text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
         }
 
         a:hover {
-            background: #d6d6d6;
+            background: #e2e2e2;
+        }
+
+        /* Smooth Fade-In Animation */
+        .center-box {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s forwards;
+        }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="box">
-    <h1>Thank You! ✔️</h1>
-    <p>Your feedback has been received successfully.</p>
+<div class="center-box">
+    <h1>Thank You ✔</h1>
+    <p>Your feedback has been submitted successfully.</p>
     <a href="index.html">Back to Website</a>
 </div>
 
 </body>
 </html>
-
-
