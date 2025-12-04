@@ -39,7 +39,19 @@
     <p class="hero-subtitle">Multi-NDT Specialist | PCN Level II Technician</p>
     <p id="typing"></p>
 
-   <div class="cv-buttons">
+<!-- STATUS BADGE -->
+<div class="status-wrapper">
+    <span class="status-dot"></span>
+    <span id="statusText">Working</span>
+</div>
+
+<!-- BUTTON GROUP -->
+<div class="hero-buttons">
+    <button class="hire-btn" onclick="scrollToContact()">Hire Me</button>
+</div>
+
+<!-- CV BUTTONS -->
+<div class="cv-buttons">
     <a href="assets/resume.pdf" download class="cv-btn2">Download CV</a>
     <button onclick="openCV()" class="cv-btn2">View CV</button>
 </div>
@@ -66,10 +78,17 @@
 <section id="about" class="section glass fade">
     <h2>About Me</h2>
     <p>
-        I am a dedicated Multi-NDT Technician with PCN Level II certification
-        and strong hands-on experience in RTFI, MT, and PT inspections.
-        I focus on safety, accuracy, and high-quality inspection workflows.
-    </p>
+I am a certified Multi-NDT Technician with expertise in Radiographic Testing Film Interpretation (RTFI), Magnetic Testing (MT), and Penetrant Testing (PT). I have worked across various industrial inspection environments, supporting safe and reliable project execution.
+</p>
+
+<p>
+My work focuses on delivering accurate evaluations, maintaining strict safety compliance, and ensuring high-quality inspection reporting. I approach each task with strong technical discipline and a commitment to precision.
+</p>
+
+<p>
+I am continuously developing my skills and knowledge to provide dependable inspection support and contribute effectively to quality assurance and operational integrity.
+</p>
+
 </section>
 
 <!-- ================= GALLERY ================= -->
@@ -77,7 +96,6 @@
     <h2>Photo Gallery</h2>
 
     <div class="gallery-row">
-        <img src="assets/gallery/img1.jpg" class="g-item lightbox">
         <img src="assets/gallery/img2.jpg" class="g-item lightbox">
         <img src="assets/gallery/img3.jpg" class="g-item lightbox">
         <img src="assets/gallery/img4.jpg" class="g-item lightbox">
@@ -267,6 +285,11 @@
 
     <h2>Contact</h2>
 
+	 <!-- OPTION C SUBTITLE -->
+   	 <p style="color:#bbb; margin-top: -10px;">
+      	  Feel free to reach out — I respond quickly.
+   	 </p>
+
     <div class="contact-grid">
 
         <a href="mailto:umamahe113@gmail.com" class="contact-card">
@@ -281,13 +304,31 @@
             <p>+91 63042 02170</p>
         </a>
 
+	<a href="https://www.linkedin.com/in/uma-mahesh-poluparthi" target="_blank" class="contact-card">
+    		<div class="contact-icon">🔗</div>
+    		<h3>LinkedIn</h3>
+   		 <p>View Profile</p>
+	</a>
+
+
         <a href="#" class="contact-card">
             <div class="contact-icon">📍</div>
             <h3>Location</h3>
             <p>India</p>
         </a>
 
+	 <!-- OPTION B CLICK-TO-COPY EMAIL CARD -->
+
+	<div class="contact-card" onclick="copyEmail()">
+    	<div class="contact-icon">📋</div>
+    	<h3>Copy Email</h3>
+    	<p>umamahe113@gmail.com</p>
+    	<p style="color:#aaa; font-size:13px;">Click to copy address</p>
+	</div>
+
     </div>
+
+<div id="copyPopup" class="copy-popup">✔ Email Copied</div>
 
 </section>
 

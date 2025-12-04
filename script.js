@@ -179,4 +179,56 @@ function openCV() {
     document.querySelector("#cv").scrollIntoView({ behavior: "smooth" });
 }
 
+/* ==============================
+   STATUS CONTROL
+================================= */
+// Change your status here: "Actively Employed", "Out of Office", "Open to Opportunities"
+let currentStatus = "Open to Opportunities";
+
+function updateStatus() {
+    const dot = document.querySelector(".status-dot");
+    const text = document.getElementById("statusText");
+
+    if (currentStatus === "Actively Employed") {
+        text.textContent = "Actively Employed";
+        dot.style.background = "#4da3ff";
+        dot.style.boxShadow = "0 0 6px #4da3ff";
+    }
+    else if (currentStatus === "Out of Office") {
+        text.textContent = "Out of Office";
+        dot.style.background = "#ffc400";
+        dot.style.boxShadow = "0 0 6px #ffc400";
+    }
+    else if (currentStatus === "Open to Opportunities") {
+        text.textContent = "Open to Opportunities";
+        dot.style.background = "#00ff87";
+        dot.style.boxShadow = "0 0 6px #00ff87";
+    }
+}
+
+updateStatus();
+
+/* ==============================
+   HIRE ME → Scroll to Contact
+================================= */
+function scrollToContact() {
+    document.querySelector("#contact").scrollIntoView({ 
+        behavior: "smooth" 
+    });
+}
+
+/* ==============================
+   COPY EMAIL with POP UP
+================================= */
+
+function copyEmail() {
+    navigator.clipboard.writeText("umamahe113@gmail.com");
+
+    const popup = document.getElementById("copyPopup");
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 2000);  // hide after 2 seconds
+}
 

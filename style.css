@@ -712,6 +712,95 @@ body {
 }
 
 
+/* ==================================
+   MINIMAL HERO STATUS BADGE
+================================== */
+.status-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
+    gap: 6px;
+    margin-top: 10px;
+
+    font-size: 15px;
+    color: #e8e8e8;
+    opacity: 0.85;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #4da3ff;
+    box-shadow: 0 0 6px #4da3ff;
+}
+
+/* ======================
+   HIRE ME BUTTON
+====================== */
+.hire-btn {
+    margin-top: 18px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.hire-btn:hover {
+    background: rgba(255,255,255,0.20);
+    transform: translateY(-3px);
+}
+
+.hero-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-card p {
+    margin: 4px 0;
+}
+
+
+/* =====================================
+   COPY EMAIL SUCCESS POPUP
+===================================== */
+.copy-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 12px 22px;
+    border-radius: 10px;
+    color: #fff;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: .4s ease;
+    z-index: 5000;
+}
+
+.copy-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+#about p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+#about p:not(:last-child) {
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
 
 
