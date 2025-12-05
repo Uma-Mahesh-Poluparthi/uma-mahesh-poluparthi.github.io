@@ -1,18 +1,18 @@
 /* ==========================
-   LOADING SCREEN
+   LOADER FADE-OUT
 ========================== */
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
     if (loader) {
         setTimeout(() => {
-            loader.style.opacity = 0;
-            setTimeout(() => loader.style.display = "none", 600);
-        }, 400);
+            loader.style.opacity = "0";
+            setTimeout(() => (loader.style.display = "none"), 500);
+        }, 300);
     }
 });
 
 /* ==========================
-   COUNTERS
+   STATS COUNTER
 ========================== */
 let counters = document.querySelectorAll(".count");
 let counterStarted = false;
@@ -20,25 +20,20 @@ let counterStarted = false;
 function runCounters() {
     if (counterStarted) return;
 
-    let trigger = window.innerHeight * 0.8;
-
     counters.forEach(counter => {
-        let rect = counter.getBoundingClientRect().top;
-        if (rect < trigger) {
-            let value = +counter.dataset.val;
-            let current = 0;
-            let step = value / 60;
+        let target = +counter.dataset.val;
+        let current = 0;
+        let speed = target / 60;
 
-            let counterRun = setInterval(() => {
-                current += step;
-                counter.textContent = Math.floor(current);
+        let interval = setInterval(() => {
+            current += speed;
+            counter.textContent = Math.floor(current);
 
-                if (current >= value) {
-                    counter.textContent = value;
-                    clearInterval(counterRun);
-                }
-            }, 25);
-        }
+            if (current >= target) {
+                counter.textContent = target;
+                clearInterval(interval);
+            }
+        }, 30);
     });
 
     counterStarted = true;
@@ -47,7 +42,7 @@ function runCounters() {
 window.addEventListener("scroll", runCounters);
 
 /* ==========================
-   LIGHTBOX
+   LIGHTBOX VIEWER
 ========================== */
 const lightbox = document.getElementById("lightbox-viewer");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -74,7 +69,6 @@ if (closeLightbox) {
 function openPDF(file) {
     const viewer = document.getElementById("pdf-viewer");
     const frame = document.getElementById("pdf-frame");
-
     if (viewer && frame) {
         frame.src = file;
         viewer.style.display = "flex";
@@ -95,10 +89,12 @@ if (pdfClose) {
 ========================== */
 document.querySelectorAll(".project-item").forEach(item => {
     const header = item.querySelector(".project-header");
+
     header.addEventListener("click", () => {
-        document.querySelectorAll(".project-item.active").forEach(open => {
-            if (open !== item) open.classList.remove("active");
+        document.querySelectorAll(".project-item.active").forEach(openItem => {
+            if (openItem !== item) openItem.classList.remove("active");
         });
+
         item.classList.toggle("active");
     });
 });
@@ -115,9 +111,9 @@ if (feedbackForm) {
 
         if (popup) popup.classList.add("show");
 
-        // Delay redirect and show popup
+        // Allow popup to show, then submit
         setTimeout(() => {
-            feedbackForm.submit();  // Now actually submit
+            feedbackForm.submit();
         }, 1500);
     });
 }
@@ -128,11 +124,12 @@ if (feedbackForm) {
 const typingTexts = [
     "Multi-NDT Specialist",
     "PCN Level II Technician",
-    "Industrial Inspector",
-    "RT • MT • PT • RTFI"
+    "RTFI | MT | PT | Inspection",
+    "Industrial Quality Control"
 ];
 
-let tIndex = 0, cIndex = 0;
+let tIndex = 0;
+let cIndex = 0;
 const typingElement = document.getElementById("typing");
 
 function typingEffect() {
@@ -155,7 +152,7 @@ function typingEffect() {
 typingEffect();
 
 /* ==========================
-   SCROLL FADE-IN
+   FADE IN ON SCROLL
 ========================== */
 const fadeItems = document.querySelectorAll(".fade");
 
@@ -190,12 +187,21 @@ if (certPrev) {
 }
 
 /* ==========================
-   HIRE → CONTACT SCROLL
+   HIRE ME → SCROLL TO CONTACT
 ========================== */
 function scrollToContact() {
-    const contact = document.querySelector("#contact");
-    if (contact) {
-        contact.scrollIntoView({ behavior: "smooth" });
+    const target = document.querySelector("#contact");
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
     }
 }
 window.scrollToContact = scrollToContact;
+
+/* ==========================
+   OPEN CV INLINE VIEW
+========================== */
+function openCV() {
+    const cvSection = document.getElementById("cv");
+    if (cvSection) cvSection.scrollIntoView({ behavior: "smooth" });
+}
+window.openCV = openCV;
